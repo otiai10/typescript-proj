@@ -5,6 +5,8 @@ module.exports = (grunt) ->
             compile:
                 src: ['src/**/*.ts']
                 dest: 'compiled'
+                # src: ['src/index.ts']
+                # dest: 'compiled/src/index.ts'
                 options:
                     module: 'commonjs'
                     target: 'es5'
