@@ -77,5 +77,5 @@ module.exports = (grunt) ->
     grunt.registerTask 'default', ['type']
     grunt.registerTask 'build', ['concat', 'uglify']
     grunt.registerTask 'generate', ['compile', 'build', 'copy:public']
-    grunt.registerTask 'preview', ['connect:preview', 'regarde']
+    grunt.registerTask 'preview', ['generate', 'connect:preview', 'regarde']
 
