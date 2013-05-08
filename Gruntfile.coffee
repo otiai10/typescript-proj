@@ -22,6 +22,8 @@ module.exports = (grunt) ->
         clean:
             type:
                 src: ['compiled/**/*.js', 'compiled/*']
+            build:
+                src: ['compiled/**/*.js']
 
         concat:
             dist:
@@ -77,7 +79,7 @@ module.exports = (grunt) ->
     grunt.registerTask 'compile', ['typescript']
     grunt.registerTask 'type', ['typescript']
     grunt.registerTask 'default', ['type']
-    grunt.registerTask 'build', ['concat', 'uglify']
+    grunt.registerTask 'build', ['typescript:compile', 'concat', 'uglify']
     grunt.registerTask 'generate', ['compile', 'build', 'copy:public']
     grunt.registerTask 'preview', ['generate', 'connect:preview', 'regarde']
 
