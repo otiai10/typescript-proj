@@ -1,5 +1,4 @@
 # TypeScript Project Template
-===================================
 
 ## What's included
 
