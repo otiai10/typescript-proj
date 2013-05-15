@@ -23,7 +23,7 @@ module.exports = (grunt) ->
             type:
                 src: ['compiled/**/*.js', 'compiled/*']
             build:
-                src: ['compiled/**/*.js']
+                src: ['build/**/*.js']
 
         concat:
             dist:
