@@ -1,6 +1,8 @@
 declare module chai {
     export function expect(value: any): IChai;
     
+    export function should(): void;
+
     export interface IChai {
         to: IChai;
         be: IChai;
@@ -15,13 +17,19 @@ declare module chai {
         same: IChai;
         not: IChai;
         deep: IChai;
-        equal: any;
-        equals: any;
-        eq: any;
-        eql: any;
+        a(v: any): any;
+        equal(v: any): any;
+        equals(v: any): any;
+        eq(v: any): any;
+        eql(v: any): any;
         null: any;
         undefined: any;
         true: any;
         false: any;
     }
+}
+
+
+interface Object {
+    should: chai.IChai;
 }
