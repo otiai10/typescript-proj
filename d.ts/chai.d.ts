@@ -1,7 +1,7 @@
 declare module chai {
     export function expect(value: any): IChai;
     
-    interface IChai {
+    export interface IChai {
         to: IChai;
         be: IChai;
         been: IChai;
@@ -19,5 +19,9 @@ declare module chai {
         equals: any;
         eq: any;
         eql: any;
+        null: any;
+        undefined: any;
+        true: any;
+        false: any;
     }
 }
