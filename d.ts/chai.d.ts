@@ -1,5 +1,5 @@
 declare module chai {
-    export function expect(value: any): any;
+    export function expect(value: any): IChai;
     
     interface IChai {
         to: IChai;
