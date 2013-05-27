@@ -4,6 +4,7 @@ declare module chai {
     export function should(): void;
 
     export interface IChai {
+        // Chains
         to: IChai;
         be: IChai;
         been: IChai;
@@ -17,18 +18,40 @@ declare module chai {
         same: IChai;
         not: IChai;
         deep: IChai;
-        a(v: any): any;
-        equal(v: any): any;
-        equals(v: any): any;
-        eq(v: any): any;
-        eql(v: any): any;
-        null: any;
-        undefined: any;
+
+        // Assertions
+        a(value: string): any;
+        include(value: any): any;
+        ok: any;
         true: any;
         false: any;
+        null: any;
+        undefined: any;
+        exist: any;
+        empty: any;
+        arguments: any;
+        equal(value: any): any;
+        eql(value: any): any;
+        above(value: number): any;
+        least(value: number): any;
+        below(value: number): any;
+        most(value: number): any;
+        within(a: number, b: number): any;
+        instanceof(Constructor: any): any;
+        property(name: string): any;
+        ownProperty(name: string): any;
+        length(length: number): any;
+        match(search: RegExp): any;
+        string(str: string): any;
+        keys(key1: string, ...keys: Array<string>): any;
+        throw(param: any): any;
+        respondTo(method: string): any;
+        itself: any;
+        satisfy(method: Function): any;
+        closeTo(expected: number, delta: number): any;
+        members(set: Array<any>): any;
     }
 }
-
 
 interface Object {
     should: chai.IChai;
