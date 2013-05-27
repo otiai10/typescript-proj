@@ -1,23 +1,13 @@
+tsc = "~/.typescript/bin/tsc"
+
 module.exports = (grunt) ->
     grunt.initConfig
         pkg: grunt.file.readJSON 'package.json'
-        typescript:
+        exec:
             compile:
-                src: ['src/**/*.ts']
-                dest: 'compiled'
-                # src: ['src/index.ts']
-                # dest: 'compiled/src/index.js'
-                options:
-                    module: 'commonjs'
-                    target: 'es5'
-                    # sourcemap: true
-                    # declaration: true
+                cmd: -> "#{tsc} --out compiled/src --declaration src/*.ts"
             test:
-                src: ['test/**/*.ts']
-                dest: 'compiled'
-                options:
-                    module: 'commonjs'
-                    target: 'es5'
+                cmd: -> "#{tsc} --out compiled/test test/*.ts"
 
         clean:
             type:
@@ -68,18 +58,17 @@ module.exports = (grunt) ->
                 files: ['src/**/*.*']
                 tasks: ['generate']
 
-    grunt.loadNpmTasks 'grunt-typescript'
     grunt.loadNpmTasks 'grunt-contrib-clean'
     grunt.loadNpmTasks 'grunt-contrib-concat'
     grunt.loadNpmTasks 'grunt-contrib-uglify'
     grunt.loadNpmTasks 'grunt-contrib-copy'
     grunt.loadNpmTasks 'grunt-contrib-connect'
     grunt.loadNpmTasks 'grunt-regarde'
+    grunt.loadNpmTasks 'grunt-exec'
 
-    grunt.registerTask 'compile', ['typescript']
-    grunt.registerTask 'type', ['typescript']
-    grunt.registerTask 'default', ['type']
-    grunt.registerTask 'build', ['typescript:compile', 'concat', 'uglify']
+    grunt.registerTask 'compile', ['exec:compile', 'exec:test']
+    grunt.registerTask 'default', ['compile']
+    grunt.registerTask 'build', ['compile', 'concat', 'uglify']
     grunt.registerTask 'generate', ['compile', 'build', 'copy:public']
     grunt.registerTask 'preview', ['generate', 'connect:preview', 'regarde']
 
