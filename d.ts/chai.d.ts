@@ -1,6 +1,5 @@
 declare module chai {
     export function expect(value: any): IChai;
-    
     export function should(): void;
 
     export interface IChai {
