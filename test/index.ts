@@ -1,6 +1,6 @@
 /// <reference path="../src/index.ts" />
-/// <reference path="../d.ts/mocha.d.ts" />
-/// <reference path="../d.ts/chai.d.ts" />
+/// <reference path="../d.ts/mocha/mocha.d.ts" />
+/// <reference path="../d.ts/chai/chai.d.ts" />
 
 describe('index', () => {
     var expect = chai.expect;
