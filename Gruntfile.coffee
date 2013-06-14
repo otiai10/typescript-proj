@@ -46,7 +46,6 @@ module.exports = (grunt) ->
                         src: '**'
                         dest: 'public/'
                 ]
-
         connect:
             preview:
                 options:
